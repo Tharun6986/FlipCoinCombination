@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 echo "Welcome to flip coin combination program"
 
 ##UserCase1
@@ -113,3 +113,22 @@ echo "HHH percentage is: " $HeadHeadHeadPercentage
 echo "TTT percentage is: " $TailTailTailPercentage
 echo "HHT percentage is: " $HeadHeadTailPercentage
 echo "HTT percentage is: " $HeadTailTailPercentage
+
+##UserCase5
+declare -A storing
+
+storing[key1]=$HeadPercentage
+storing[key2]=$TailPercentage
+storing[key3]=$HeadHeadPercentage
+storing[key4]=$TailTailPercentage
+storing[key5]=$HeadTailPercentage
+storing[key6]=$HeadHeadHeadPercentage
+storing[key7]=$TailTailTailPercentage
+storing[key8]=$HeadHeadTailPercentage
+storing[key9]=$HeadTailTailPercentage
+
+array=${storing[@]}
+Sorting=`echo ${array[@]} | awk 'BEGIN{RS=" "} {print $1}' | sort -n`
+echo "Sorting the singlet, Doublet and Triplet combination."
+echo $Sorting
+
